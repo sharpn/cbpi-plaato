@@ -25,15 +25,12 @@ class PlaatoSensor(SensorActive):
     for key in PINS.keys():
         pins.append(key)
 
-    api_key = Property.Text(label="Api Key", configurable=True)
+    api_key = Property.Text("Api Key", configurable=True)
     pin = Property.Select(
         "Pin", options=pins, description="Select which metric you want to listen for")
     unit = Property.Select("Unit", options=["°C", "°F"])
     refresh_time = Property.Text(
         "Refresh Time", default_value="5", configurable=True)
-
-    def stop(self):
-        print("STOP")
 
     def get_unit(self):
         return self.unit
