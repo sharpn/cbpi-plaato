@@ -16,6 +16,8 @@ PINS = {
     "Co2": "v119"
 }
 
+plaato_base_url = 'http://plaato.blynk.cc'
+
 
 @cbpi.sensor
 class PlaatoSensor(SensorActive):
@@ -40,8 +42,8 @@ class PlaatoSensor(SensorActive):
         while self.is_running():
             pin_value = PINS[self.pin]
             refresh = float(self.refresh_time)
-            url = "http://plaato.blynk.cc/{0}/get/{1}".format(
-                self.api_key, pin_value)
+            url = "{0}/{1}/get/{2}".format(
+                plaato_base_url, self.api_key, pin_value)
             print(url)
             # contents = urllib2.urlopen(url).read()
             # print(contents)
