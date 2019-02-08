@@ -61,7 +61,6 @@ class PlaatoSensor(SensorActive):
             err = error.read()
             print err
         else:
-
             content = response.read()
             j = json.loads(content)
 
