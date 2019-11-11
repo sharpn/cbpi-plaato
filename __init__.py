@@ -50,7 +50,9 @@ class PlaatoSensor(SensorActive):
             refresh = float(self.refresh_time)
             response = self.get(pin_value)
 
-            self.data_received(round(response), 2)
+            rounded_response = str(round(float(response), 2))
+
+            self.data_received(rounded_response)
             self.api.socketio.sleep(refresh)
 
     def get(self, pin):
