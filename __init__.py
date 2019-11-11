@@ -65,6 +65,6 @@ class PlaatoSensor(SensorActive):
             j = json.loads(content)
 
             if type(j) == list:
-                return float(j[0])
+                return str(round(j[0], 2))
             else:
-                return float(j)
+                return str(round(j))
